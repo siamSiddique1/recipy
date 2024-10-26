@@ -9,6 +9,12 @@ import Sidebar from './Sidebar'
 function App() {
   const[wntCook,setwntCook]=useState([])
   const handleWntcook=(data)=>{
+    wntCook.map((datum)=>{
+      if(datum==data){
+        alert(`you have already added ${data.recipe_name}`)
+        handleWntcook.exit();
+      }
+    })
     setwntCook([...wntCook,data])
     console.log(wntCook)
   }
